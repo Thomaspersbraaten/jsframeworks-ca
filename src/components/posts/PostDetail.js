@@ -8,9 +8,11 @@ function PostDetail() {
   const [post, setPost] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  // const { id } = useParams();
+  const { slug } = useParams();
 
-  const url = API_URL + "/wp/v2/posts/" + id;
+  // const url = API_URL + "/wp/v2/posts/" + id + "?_embed";
+  const url = API_URL + "/wp/v2/posts?slug=" + slug + "&_embed";
 
   useEffect(() => {
     async function getPosts() {
@@ -18,7 +20,7 @@ function PostDetail() {
         const response = await fetch(url);
         if (response.ok) {
           const json = await response.json();
-          setPost(json);
+          setPost(json[0]);
         } else {
           console.log(response);
           setError("Please try again");
@@ -36,14 +38,33 @@ function PostDetail() {
     return (
       <>
         <Spinner />
-        <div>Posts are loading</div>
+        <div>The post is loading</div>
       </>
     );
   }
   if (error) {
     return <FetchError variant="danger" message={error} />;
   }
-  return <div>PostDetail {post.id}</div>;
+  function createMarkup() {
+    return { __html: `${post.content.rendered}` };
+  }
+
+  function MyComponent() {
+    return <div dangerouslySetInnerHTML={createMarkup()} />;
+  }
+
+  return (
+    <div className="details-post">
+      <h1 className="details-post__header">{post.title.rendered}</h1>
+      <img src={post._embedded["wp:featuredmedia"][0].source_url} className="details-post__image" />
+      <MyComponent />
+
+      <div>
+        <p>Published:</p>
+        {/* <FormatDate /> */}
+      </div>
+    </div>
+  );
 }
 
 export default PostDetail;

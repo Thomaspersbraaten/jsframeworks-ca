@@ -1,21 +1,41 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Contact from "./components/contact/Contact";
-import Home from "./components/home/Home";
-import "./index.scss";
+import Contact from "./components/pages/contact/Contact";
+import Admin from "./components/pages/admin/Admin";
+import Home from "./components/pages/home/Home";
+import Login from "./components/pages/login/Login";
+// import "./index.scss";
+import "./styles/index.scss";
 import Navigation from "./components/nav/Navigation";
 import PostDetail from "./components/posts/PostDetail";
+import Breadcrumbs from "./components/Breadcrumbs";
+
+import { AuthProvider } from "./components/context/AuthContext";
+import { Container } from "react-bootstrap";
+import { FavouriteProvider } from "./components/context/FavouriteContext";
+
+// privateroute
 
 function App() {
   return (
-    <Router>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/posts/:id" element={<PostDetail />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <FavouriteProvider>
+        <Router>
+          <Navigation />
+          <Container>
+            <Breadcrumbs />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
+              {/* <Route path="/posts/:id" element={<PostDetail />} /> */}
+              <Route path="/posts/:slug" element={<PostDetail />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/admin" element={<Admin />} />
+            </Routes>
+          </Container>
+        </Router>
+      </FavouriteProvider>
+    </AuthProvider>
   );
 }
 
