@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API_URL, TOKEN_PATH } from "../../constants/api";
 import { AuthContext } from "../../context/AuthContext";
+import Heading from "../../Heading";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -50,7 +51,8 @@ export default function LoginForm() {
   }
   return (
     <Form onSubmit={handleSubmit(sendLoginData)}>
-      <fieldset disabled={submitting}>
+      <fieldset disabled={submitting} className="form-fieldset">
+        <Heading size="2">Login form</Heading>
         <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control type="input" placeholder="Enter Username" {...register("username")} defaultValue="ThomasPerry" />

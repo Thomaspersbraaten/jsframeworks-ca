@@ -1,9 +1,10 @@
+import Heading from "../../Heading";
 import ContactForm from "./form/ContactForm";
 
 function Contact() {
   return (
     <>
-      <div>Please use the contact form below to contact us</div>
+      <Heading size="1">Contact</Heading>
       <ContactForm />
     </>
   );

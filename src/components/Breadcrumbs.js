@@ -1,28 +1,35 @@
 import { Breadcrumb, BreadcrumbItem } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Breadcrumbs() {
   const location = useLocation();
   const path = location.pathname;
   const splicedPath = path.split("/");
-  // console.log(splicedPath);
   if (path === "/") {
     return null;
   } else
     return (
-      <Breadcrumb className="breadcrumbs">
-        <BreadcrumbItem href="/" className="breadcrumb">
+      <div className="breadcrumbs">
+        <Link to="/" className="breadcrumbs__link" key="/">
           Home
-        </BreadcrumbItem>
+        </Link>
 
         {splicedPath.map((path) => {
+          // Hides breadcrumbs on homepage and removes the "detail" from breadcrumbs since its not a valid link
           if (path === "") return;
+          if (path === "detail") return;
+          let breakerCount = 0;
           return (
-            <BreadcrumbItem href={path} key={path}>
-              {path}
-            </BreadcrumbItem>
+            <>
+              <div className="breaker" key={breakerCount + 1}>
+                /
+              </div>
+              <Link className="breadcrumbs__link" to={path} key={path}>
+                {path}
+              </Link>
+            </>
           );
         })}
-      </Breadcrumb>
+      </div>
     );
 }

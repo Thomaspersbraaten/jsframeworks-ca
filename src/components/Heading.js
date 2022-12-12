@@ -1,4 +1,11 @@
-export default function Heading(props) {
-  const VariableHeading = `h${props.size}`;
-  return <VariableHeading>{props.children}</VariableHeading>;
+export default function Heading({ size, children, color = "black" }) {
+  const VariableHeading = `h${size}`;
+  // const colorStyle = {
+  //   color: "white",
+  // };
+  const colorStyle = {
+    color: `${color}`,
+  };
+
+  return <VariableHeading style={colorStyle}> {children}</VariableHeading>;
 }

@@ -1,3 +1,11 @@
+import Heading from "../../Heading";
+import FavouriteList from "./FavouriteList";
+
 export default function Favourites() {
-  return <div>Favourites</div>;
+  return (
+    <>
+      <Heading size="1">List of your favourites</Heading>
+      <FavouriteList />
+    </>
+  );
 }

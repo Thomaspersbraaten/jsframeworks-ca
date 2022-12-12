@@ -3,6 +3,8 @@ import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { API_URL } from "../constants/api";
 import FetchError from "../feedback/FetchError";
+import Heading from "../Heading";
+import PublishedDate from "../moment/PublishedDate";
 
 function PostDetail() {
   const [post, setPost] = useState([]);
@@ -55,13 +57,13 @@ function PostDetail() {
 
   return (
     <div className="details-post">
-      <h1 className="details-post__header">{post.title.rendered}</h1>
+      {/* <h1 className="details-post__header">{post.title.rendered}</h1> */}
+      <Heading size="1">{post.title.rendered}</Heading>
       <img src={post._embedded["wp:featuredmedia"][0].source_url} className="details-post__image" />
       <MyComponent />
 
       <div>
-        <p>Published:</p>
-        {/* <FormatDate /> */}
+        <PublishedDate />
       </div>
     </div>
   );

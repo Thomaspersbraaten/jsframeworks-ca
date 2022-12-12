@@ -1,7 +1,32 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 import Heading from "../../Heading";
+import LogoutModal from "./LogoutModal";
 
 function Admin() {
-  return <Heading size="1">Admin</Heading>;
+  const [auth, setAuth] = useContext(AuthContext);
+  const navigate = useNavigate();
+  function startLogout() {
+    const modalContainer = document.querySelector(".modal-container");
+    modalContainer.style.display = "flex";
+    const cancelButton = document.querySelector(".cancel");
+    const confirmButton = document.querySelector(".confirm");
+    cancelButton.addEventListener("click", () => {
+      modalContainer.style.display = "none";
+    });
+    confirmButton.addEventListener("click", () => {
+      setAuth(null);
+      navigate("/");
+    });
+  }
+  return (
+    <>
+      <Heading size="1">Admin</Heading>
+      <button onClick={startLogout}>Logout</button>
+      <LogoutModal />
+    </>
+  );
 }
 
 export default Admin;
