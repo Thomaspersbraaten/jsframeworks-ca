@@ -4,16 +4,15 @@ import { useParams } from "react-router-dom";
 import { API_URL } from "../constants/api";
 import FetchError from "../feedback/FetchError";
 import Heading from "../Heading";
+import Loader from "../Loader";
 import PublishedDate from "../moment/PublishedDate";
 
 function PostDetail() {
   const [post, setPost] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const { id } = useParams();
   const { slug } = useParams();
 
-  // const url = API_URL + "/wp/v2/posts/" + id + "?_embed";
   const url = API_URL + "/wp/v2/posts?slug=" + slug + "&_embed";
 
   useEffect(() => {
@@ -24,7 +23,6 @@ function PostDetail() {
           const json = await response.json();
           setPost(json[0]);
         } else {
-          console.log(response);
           setError("Please try again");
         }
       } catch (error) {
@@ -34,15 +32,11 @@ function PostDetail() {
         setLoading(false);
       }
     }
+
     getPosts();
   }, [url]);
   if (loading) {
-    return (
-      <>
-        <Spinner />
-        <div>The post is loading</div>
-      </>
-    );
+    return <Loader message="The post is loading...." />;
   }
   if (error) {
     return <FetchError variant="danger" message={error} />;
@@ -57,11 +51,9 @@ function PostDetail() {
 
   return (
     <div className="details-post">
-      {/* <h1 className="details-post__header">{post.title.rendered}</h1> */}
       <Heading size="1">{post.title.rendered}</Heading>
-      <img src={post._embedded["wp:featuredmedia"][0].source_url} className="details-post__image" />
+      <img src={post._embedded["wp:featuredmedia"][0].source_url} className="details-post__image" alt={post._embedded["wp:featuredmedia"][0].alt_text} />
       <MyComponent />
-
       <div>
         <PublishedDate />
       </div>

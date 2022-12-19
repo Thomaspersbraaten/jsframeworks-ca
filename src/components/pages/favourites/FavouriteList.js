@@ -35,20 +35,20 @@ export default function FavouriteList() {
   }
   if (favourite.length === 0) {
     return <div>you have no favourites</div>;
+  } else {
+    return (
+      <div>
+        {favourite.map((post) => (
+          <div className="post" key={post.id}>
+            <Link to={`/detail/${post.slug}`} className="post__link">
+              <div>{post.title.rendered}</div>
+              <PublishedDate date={post.date} />
+            </Link>
+
+            <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>
+          </div>
+        ))}
+      </div>
+    );
   }
-
-  return (
-    <div>
-      {favourite.map((post) => (
-        <div className="post" key={post.id}>
-          <Link to={`/detail/${post.slug}`} className="post__link">
-            <div>{post.title.rendered}</div>
-            <PublishedDate date={post.date} />
-          </Link>
-
-          <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>
-        </div>
-      ))}
-    </div>
-  );
 }

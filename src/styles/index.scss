@@ -2,6 +2,8 @@
 @use "./posts";
 @use "./modal";
 @use "./form";
+@use "./loader";
+@use "./error";
 
 .nav-container {
   width: 100%;
@@ -30,7 +32,9 @@
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   }
 }
-
+.published {
+  font-weight: 500;
+}
 body {
   margin: 0;
   min-height: 100vh;
@@ -39,12 +43,6 @@ body {
 img {
   width: 100%;
 }
-
-// .input-error {
-//   padding: 0;
-//   background: none;
-//   border: none;
-// }
 
 .body-container {
   margin: 0 !important;
