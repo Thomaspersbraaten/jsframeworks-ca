@@ -1,13 +1,17 @@
 .post {
   display: flex;
   flex-direction: column;
+  border: 2px solid black;
   gap: 1rem;
-  font-family: cursive;
-  background-color: gainsboro;
+  // font-family: cursive;
+  // background-color: gainsboro;
+  background-color: #dfeddf;
   border-radius: 10px;
   padding: 1rem;
-  width: 220px;
-  height: 200px;
+  // width: 220px;
+  // height: 200px;
+  width: 275px;
+  height: 190px;
   transition: all 0.3s;
   & a {
     text-decoration: none;
@@ -19,13 +23,23 @@
       color: rgb(63, 90, 240);
     }
   }
+  &__heading {
+    font-size: 1.75rem;
+    height: 70px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
+
 .post-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
   align-items: center;
+  // margin-bottom: 3rem;
 }
 
 .fa-heart {
@@ -41,6 +55,13 @@
 }
 .fa-solid {
   color: red;
+}
+.no-favourites {
+  font-size: 1rem;
+  &__to-home {
+    display: flex;
+    gap: 0.3rem;
+  }
 }
 .details-post {
   padding: 1rem;

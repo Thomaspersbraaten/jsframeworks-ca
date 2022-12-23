@@ -5,6 +5,7 @@ function Home() {
   return (
     <div>
       <Heading size="1">Welcome to the home page</Heading>
+      <Heading size="2">Our lates posts</Heading>
       <ListPosts />
     </div>
   );

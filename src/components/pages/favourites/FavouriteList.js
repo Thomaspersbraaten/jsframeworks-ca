@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FavouriteContext } from "../../context/FavouriteContext";
 import Heading from "../../Heading";
 import PublishedDate from "../../moment/PublishedDate";
+import NoFavourites from "./NoFavourites";
 
 export default function FavouriteList() {
   const [favourite, setFavourite] = useContext(FavouriteContext);
@@ -34,7 +35,7 @@ export default function FavouriteList() {
     }
   }
   if (favourite.length === 0) {
-    return <div>you have no favourites</div>;
+    return <NoFavourites variant="info" />;
   } else {
     return (
       <div className="post-container">

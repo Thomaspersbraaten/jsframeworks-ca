@@ -27,6 +27,7 @@ export default function ListPosts() {
         const response = await fetch(url);
         if (response.ok) {
           const json = await response.json();
+          console.log(json);
           setPosts(json);
         } else {
           seterror("an error occured");
@@ -77,7 +78,9 @@ export default function ListPosts() {
           <div className="post" key={post.id}>
             <Link to={`/detail/${post.slug}`} className="post__link">
               {/* <div>{post.title.rendered}</div> */}
-              <Heading size="2">{post.title.rendered}</Heading>
+              <Heading className="post__heading" size="2">
+                {post.title.rendered}
+              </Heading>
               <PublishedDate date={post.date} />
             </Link>
             <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>

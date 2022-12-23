@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import Heading from "../../Heading";
@@ -23,7 +24,8 @@ function Admin() {
   return (
     <>
       <Heading size="1">Admin</Heading>
-      <button onClick={startLogout}>Logout</button>
+      <Heading size="2">Welcome, You are logged in as {auth.user_display_name}</Heading>
+      <Button onClick={startLogout}>Logout</Button>
       <LogoutModal />
     </>
   );

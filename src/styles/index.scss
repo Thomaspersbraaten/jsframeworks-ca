@@ -22,7 +22,8 @@ h4 {
   display: flex;
   gap: 5rem;
   padding: 1rem;
-  background: linear-gradient(to right, #00ffee, #fff);
+  // background: linear-gradient(to right, #00ffee, #fff);
+  background-color: #d7ecd7;
   & span {
     font-weight: bold;
     font-size: 1.6rem;
@@ -71,10 +72,11 @@ img {
 
 .body-container {
   margin: 0 !important;
+  padding: 1rem 0rem 3rem 0rem;
   max-width: none;
   min-height: 100vh;
   // background: linear-gradient(to right, #100d17, rgb(27, 1, 1));
-  background-color: bisque;
+  // background-color: bisque;
 }
 
 .container {
