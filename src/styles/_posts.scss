@@ -1,12 +1,13 @@
 .post {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   font-family: cursive;
   background-color: gainsboro;
   border-radius: 10px;
   padding: 1rem;
   width: 220px;
+  height: 200px;
   transition: all 0.3s;
   & a {
     text-decoration: none;
@@ -18,10 +19,6 @@
       color: rgb(63, 90, 240);
     }
   }
-  // &:hover {
-  //   background-color: rgb(190, 189, 189);
-  //   color: black;
-  // }
 }
 .post-container {
   display: flex;
@@ -42,6 +39,18 @@
     color: red;
   }
 }
+.fa-solid {
+  color: red;
+}
 .details-post {
   padding: 1rem;
+  max-width: 900px;
+  margin: auto;
+  & h2 {
+    margin: 1rem auto;
+  }
+  & .published {
+    font-weight: bold;
+    margin: 1rem auto;
+  }
 }

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FavouriteContext } from "../../context/FavouriteContext";
+import Heading from "../../Heading";
 import PublishedDate from "../../moment/PublishedDate";
-import PostListCard from "../../posts/PostListCard";
 
 export default function FavouriteList() {
   const [favourite, setFavourite] = useContext(FavouriteContext);
@@ -37,11 +37,13 @@ export default function FavouriteList() {
     return <div>you have no favourites</div>;
   } else {
     return (
-      <div>
+      <div className="post-container">
         {favourite.map((post) => (
           <div className="post" key={post.id}>
             <Link to={`/detail/${post.slug}`} className="post__link">
-              <div>{post.title.rendered}</div>
+              {/* <div>{post.title.rendered}</div> */}
+              <Heading size="2">{post.title.rendered}</Heading>
+
               <PublishedDate date={post.date} />
             </Link>
 

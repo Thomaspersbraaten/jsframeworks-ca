@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { API_URL } from "../constants/api";
 import { FavouriteContext } from "../context/FavouriteContext";
 import FetchError from "../feedback/FetchError";
+import Heading from "../Heading";
 import Loader from "../Loader";
 import PublishedDate from "../moment/PublishedDate";
 
@@ -75,7 +76,8 @@ export default function ListPosts() {
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <Link to={`/detail/${post.slug}`} className="post__link">
-              <div>{post.title.rendered}</div>
+              {/* <div>{post.title.rendered}</div> */}
+              <Heading size="2">{post.title.rendered}</Heading>
               <PublishedDate date={post.date} />
             </Link>
             <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>

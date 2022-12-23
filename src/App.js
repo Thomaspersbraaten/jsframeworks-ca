@@ -14,6 +14,7 @@ import { AuthProvider } from "./components/context/AuthContext";
 import { Container } from "react-bootstrap";
 import { FavouriteProvider } from "./components/context/FavouriteContext";
 import Favourites from "./components/pages/favourites/Favourites";
+import Footer from "./components/footer/Footer";
 
 // privateroute
 
@@ -37,6 +38,7 @@ function App() {
               </Routes>
             </Container>
           </div>
+          <Footer />
         </Router>
       </FavouriteProvider>
     </AuthProvider>
