@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FavouriteContext } from "../../context/FavouriteContext";
+import CreateFavouriteClass from "../../CreateFavouriteClass";
 import Heading from "../../Heading";
 import PublishedDate from "../../moment/PublishedDate";
 import NoFavourites from "./NoFavourites";
@@ -23,32 +24,46 @@ export default function FavouriteList() {
       setFavourite([...favourite, data]);
     }
   }
-  function createFavouriteClass(data) {
-    const isFavorited = favourite.some((fav) => {
-      return fav.id === data.id;
-    });
+  // function createFavouriteClass(data) {
+  //   const isFavorited = favourite.some((fav) => {
+  //     return fav.id === data.id;
+  //   });
 
-    if (isFavorited) {
-      return "fa-solid fa-heart";
-    } else {
-      return "fa-regular fa-heart";
-    }
-  }
+  //   if (isFavorited) {
+  //     return "fa-solid fa-heart";
+  //   } else {
+  //     return "fa-regular fa-heart";
+  //   }
+  // }
   if (favourite.length === 0) {
     return <NoFavourites variant="info" />;
   } else {
+    // return (
+    //   <div className="post-container">
+    //     {favourite.map((post) => (
+    //       <div className="post" key={post.id}>
+    //         <Link to={`/detail/${post.slug}`} className="post__link">
+    //           <Heading size="2" className="post__heading">
+    //             {post.title.rendered}
+    //           </Heading>
+    //           <PublishedDate date={post.date} />
+    //         </Link>
+    //         <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>
+    //       </div>
+    //     ))}
+    //   </div>
+    // );
     return (
       <div className="post-container">
         {favourite.map((post) => (
           <div className="post" key={post.id}>
             <Link to={`/detail/${post.slug}`} className="post__link">
-              {/* <div>{post.title.rendered}</div> */}
-              <Heading size="2">{post.title.rendered}</Heading>
-
+              <Heading size="2" className="post__heading">
+                {post.title.rendered}
+              </Heading>
               <PublishedDate date={post.date} />
             </Link>
-
-            <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>
+            <i className={CreateFavouriteClass(post, favourite)} onClick={() => toggleFavourite(post)}></i>
           </div>
         ))}
       </div>
