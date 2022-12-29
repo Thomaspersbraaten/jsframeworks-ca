@@ -17,7 +17,7 @@ import Favourites from "./components/pages/favourites/Favourites";
 import Footer from "./components/footer/Footer";
 
 // privateroute
-
+// bug hvis man taster inn /admin manuelt
 function App() {
   return (
     <AuthProvider>

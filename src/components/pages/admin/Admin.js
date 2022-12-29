@@ -8,6 +8,7 @@ import LogoutModal from "./LogoutModal";
 function Admin() {
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
+
   function startLogout() {
     const modalContainer = document.querySelector(".modal-container");
     modalContainer.style.display = "flex";
