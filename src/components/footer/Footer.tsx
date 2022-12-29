@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <footer className="footer-container">
       <div>Envposts 2022</div>

@@ -1,6 +1,10 @@
 import { Spinner } from "react-bootstrap";
 
-export default function Loader(props) {
+interface Properties {
+  message: string;
+}
+
+export default function Loader(props: Properties): JSX.Element {
   return (
     <div className="loader-container">
       <Spinner />

@@ -4,7 +4,7 @@ import { Nav, NavbarBrand, Navbar, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-export default function Navigation() {
+export default function Navigation(): JSX.Element {
   const [auth, setAuth] = useContext(AuthContext);
 
   return (

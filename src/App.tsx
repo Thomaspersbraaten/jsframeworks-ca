@@ -18,6 +18,7 @@ import Footer from "./components/footer/Footer";
 
 // privateroute
 // bug hvis man taster inn /admin manuelt
+// https://dev.to/luispa/how-to-add-a-dynamic-title-on-your-react-app-1l7k
 function App() {
   return (
     <AuthProvider>
