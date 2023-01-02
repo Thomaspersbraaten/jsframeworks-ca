@@ -1,8 +1,3 @@
-// interface Posts {
-//   data: string[];
-//   favourite: string[];
-// }
-
 export default function ToggleFavourite(data, favourite) {
   const isAlreadyFavourite = favourite.some((post) => {
     return post.id === data.id;

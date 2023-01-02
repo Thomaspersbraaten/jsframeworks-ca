@@ -16,8 +16,6 @@ import { FavouriteProvider } from "./components/context/FavouriteContext";
 import Favourites from "./components/pages/favourites/Favourites";
 import Footer from "./components/footer/Footer";
 
-// privateroute
-// bug hvis man taster inn /admin manuelt
 // https://dev.to/luispa/how-to-add-a-dynamic-title-on-your-react-app-1l7k
 function App() {
   return (
@@ -29,7 +27,7 @@ function App() {
             <Container>
               <Breadcrumbs />
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home title="| Home" />} />
                 <Route path="/contact" element={<Contact />} />
                 {/* <Route path="/posts/:id" element={<PostDetail />} /> */}
                 <Route path="/detail/:slug" element={<PostDetail />} />

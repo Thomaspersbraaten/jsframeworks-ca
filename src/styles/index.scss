@@ -1,10 +1,10 @@
-@use "./breadcrumbs";
-@use "./posts";
-@use "./modal";
-@use "./form";
-@use "./loader";
-@use "./error";
-@use "./footer";
+@use "./partials/breadcrumbs";
+@use "./partials/posts";
+@use "./partials/modal";
+@use "./partials/form";
+@use "./partials/loader";
+@use "./partials/error";
+@use "./partials/footer";
 body {
   margin: 0;
 }

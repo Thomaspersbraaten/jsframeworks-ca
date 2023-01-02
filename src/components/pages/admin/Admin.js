@@ -6,6 +6,9 @@ import Heading from "../../Heading";
 import LogoutModal from "./LogoutModal";
 
 function Admin() {
+  useEffect(() => {
+    document.title = "Envposts | Admin page";
+  }, []);
   const [auth, setAuth] = useContext(AuthContext);
   const navigate = useNavigate();
 

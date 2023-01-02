@@ -7,13 +7,8 @@ import { Alert } from "react-bootstrap";
 //     </Alert>
 //   );
 // }
-interface Props {
-  message: string;
-  variant: string;
-  className: any;
-}
 
-export default function FormControl({ className, variant, message }: Props): JSX.Element {
+export default function FormControl({ className, variant, message }) {
   return (
     <Alert className={className} variant={variant}>
       {message}

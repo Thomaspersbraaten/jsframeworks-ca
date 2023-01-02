@@ -1,10 +1,3 @@
-interface Properties {
-  size: number;
-  children: React.ReactNode;
-  color: any;
-  className: any;
-}
-
 // export default function Heading({ size, children, color = "black", className = "" }: Properties): JSX.Element {
 //   const VariableHeading = `h${size}`;
 //   const colorStyle = {
@@ -18,8 +11,8 @@ interface Properties {
 //   );
 // }
 
-export default function Heading({ size, children, color = "black", className = "" }: Properties) {
-  const VariableHeading: any = `h${size}`;
+export default function Heading({ size, children, color = "black", className = "" }) {
+  const VariableHeading = `h${size}`;
   const colorStyle = {
     color: { color },
   };

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { API_URL } from "../constants/api";
 import FetchError from "../feedback/FetchError";
@@ -46,6 +45,9 @@ function PostDetail() {
   }
 
   function MyComponent() {
+    useEffect(() => {
+      document.title = `Envposts | ${post.title.rendered}`;
+    }, []);
     return <div dangerouslySetInnerHTML={createMarkup()} />;
   }
 
