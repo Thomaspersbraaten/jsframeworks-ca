@@ -43,52 +43,12 @@ export default function ListPosts() {
     getPosts();
   }, []);
 
-  // function toggleFavourite(data) {
-  //   const isAlreadyFavourite = favourite.some((post) => {
-  //     return post.id === data.id;
-  //   });
-  //   if (isAlreadyFavourite) {
-  //     const newArray = favourite.filter((postToRemove) => {
-  //       return postToRemove.id !== data.id;
-  //     });
-  //     setFavourite(newArray);
-  //   } else {
-  //     setFavourite([...favourite, data]);
-  //   }
-  // }
-
-  // function createFavouriteClass(data) {
-  //   const isFavorited = favourite.some((fav) => {
-  //     return fav.id === data.id;
-  //   });
-
-  //   if (isFavorited) {
-  //     return "fa-solid fa-heart";
-  //   } else {
-  //     return "fa-regular fa-heart";
-  //   }
-  // }
   if (loading) {
     return <Loader message="The posts are loading...." />;
   }
   if (error) {
     return <FetchError variant="danger" message={error} />;
   } else {
-    // return (
-    //   <div className="post-container">
-    //     {posts.map((post) => (
-    //       <div className="post" key={post.id}>
-    //         <Link to={`/detail/${post.slug}`} className="post__link">
-    //           <Heading className="post__heading" size="2">
-    //             {post.title.rendered}
-    //           </Heading>
-    //           <PublishedDate date={post.date} />
-    //         </Link>
-    //         <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>
-    //       </div>
-    //     ))}
-    //   </div>
-    // );
     return (
       <div className="post-container">
         {posts.map((post) => (
@@ -181,3 +141,45 @@ export default function ListPosts() {
 //     ))}
 //   </div>
 // );
+
+// return (
+//   <div className="post-container">
+//     {posts.map((post) => (
+//       <div className="post" key={post.id}>
+//         <Link to={`/detail/${post.slug}`} className="post__link">
+//           <Heading className="post__heading" size="2">
+//             {post.title.rendered}
+//           </Heading>
+//           <PublishedDate date={post.date} />
+//         </Link>
+//         <i className={createFavouriteClass(post)} onClick={() => toggleFavourite(post)}></i>
+//       </div>
+//     ))}
+//   </div>
+// );
+
+// function toggleFavourite(data) {
+//   const isAlreadyFavourite = favourite.some((post) => {
+//     return post.id === data.id;
+//   });
+//   if (isAlreadyFavourite) {
+//     const newArray = favourite.filter((postToRemove) => {
+//       return postToRemove.id !== data.id;
+//     });
+//     setFavourite(newArray);
+//   } else {
+//     setFavourite([...favourite, data]);
+//   }
+// }
+
+// function createFavouriteClass(data) {
+//   const isFavorited = favourite.some((fav) => {
+//     return fav.id === data.id;
+//   });
+
+//   if (isFavorited) {
+//     return "fa-solid fa-heart";
+//   } else {
+//     return "fa-regular fa-heart";
+//   }
+// }

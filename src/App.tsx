@@ -27,7 +27,7 @@ function App() {
           <Navigation />
           <div className="body-container">
             <Container>
-              {/* <Breadcrumbs /> */}
+              <Breadcrumbs />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/contact" element={<Contact />} />
