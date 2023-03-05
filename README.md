@@ -21,11 +21,11 @@ To install the project on your local computer pull the repo with github and open
 # Tasks for this project
 
 ### Your app should have the following paths:
-"/"
-"/detail/:param"
-"/contact"
-"/login"
-"/admin"
+* "/"
+* "/detail/:param"
+* "/contact"
+* "/login"
+* "/admin"
 
 
 ### Home
